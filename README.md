@@ -107,7 +107,7 @@ console.log(two); // {first: "hi", second: "hello", third: "bye bye"}
 const hi = (something, args) => console.log(...args);
 ```
 
-- `...배열`은 배열을 unpack해서 item들만을 전달함
+- `...배열`은 배열을 unpack해서 element들만을 전달함
 - 객체도 가능함
 - function도 가능
 
@@ -144,3 +144,17 @@ myBaby.sayName();
 - class는 청사진같은 것
 - 내부의 변수를 사용할 때는 `this`를 사용해야함
 - `extends`: class를 확장, 부모 클래스의 변수와 function을 그대로 사용할 수 있음
+
+### Array map
+
+```javascript
+const days = ["Mon", "Tues", "Web", "Thu", "Fri"];
+
+const smilingDays = days.map((day, index) => `😁 ${index + 1} ${day}`);
+
+console.log(smilingDays);
+```
+
+`Array.map()`: 배열의 element에 모두 동일한 동작을 하고, 그걸 배열로 반환받고 싶을 때 사용함
+
+- `(element, index)`의 순서로 인자를 받아올 수 있음
