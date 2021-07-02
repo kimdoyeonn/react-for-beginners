@@ -110,3 +110,37 @@ const hi = (something, args) => console.log(...args);
 - `...배열`은 배열을 unpack해서 item들만을 전달함
 - 객체도 가능함
 - function도 가능
+
+### Classes
+
+```javascript
+class Human {
+  constructor(name, lastName) {
+    this.name = name;
+    this.lastName = lastName;
+  }
+}
+
+const doyeon = new Human("Doyeon", "Kim");
+
+console.log(doyeon);
+
+class Baby extends Human {
+  cry() {
+    console.log("Waaaaaa");
+  }
+  sayName() {
+    console.log(`My name is ${this.name}`);
+  }
+}
+
+const myBaby = new Baby("mini", "me");
+
+console.log(myBaby);
+myBaby.cry();
+myBaby.sayName();
+```
+
+- class는 청사진같은 것
+- 내부의 변수를 사용할 때는 `this`를 사용해야함
+- `extends`: class를 확장, 부모 클래스의 변수와 function을 그대로 사용할 수 있음
