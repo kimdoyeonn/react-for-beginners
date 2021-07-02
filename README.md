@@ -46,3 +46,35 @@ const doyeon = sayHello();
 
 console.log(doyeon);
 ```
+
+### Object Structuring
+
+```javascript
+const human = {
+  name: "doyeon",
+  lastName: "kim",
+  nationality: "Korean",
+  favFood: {
+    breakfast: "Sam",
+    lunch: "Doncas",
+    dinner: "Sam + Doncas",
+  },
+};
+
+// 비효율적
+// const name = human.name;
+// const lastName = human.lastName;
+// const difName = human.nationality;
+const {
+  name,
+  lastName,
+  nationality: difName,
+  favFood: { dinner, breakfast, lunch },
+} = human;
+
+console.log(name, lastName, dinner, breakfast, lunch);
+```
+
+- 객체 안에 있는 값을 변수로 가져올 때, 같은 이름을 두번 쓰지 않고 한번에, 여러 변수를 할당할 수 있다.
+- 객체가 가지고 있는 key값을 변수명으로 사용하고 싶지 않을 경우에는 `key: 원하는이름`의 형식으로 작성하면 된다.
+- 객체 안의 객체가 가지고 있는 값을 변수로 가져오고 싶을 때는 `key: {변수, 변수...}` 의 형식으로 작성하면 된다.
