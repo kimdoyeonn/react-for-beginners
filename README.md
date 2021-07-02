@@ -78,3 +78,35 @@ console.log(name, lastName, dinner, breakfast, lunch);
 - 객체 안에 있는 값을 변수로 가져올 때, 같은 이름을 두번 쓰지 않고 한번에, 여러 변수를 할당할 수 있다.
 - 객체가 가지고 있는 key값을 변수명으로 사용하고 싶지 않을 경우에는 `key: 원하는이름`의 형식으로 작성하면 된다.
 - 객체 안의 객체가 가지고 있는 값을 변수로 가져오고 싶을 때는 `key: {변수, 변수...}` 의 형식으로 작성하면 된다.
+
+### Spread Operator
+
+```javascript
+const days = ["Mon", "Tues", "Web"];
+const otherDays = ["Thu", "Fri", "Sat"];
+
+// const allDays = days + otherDays;
+
+// console.log(allDays); // Mon,Tues,WebThu,Fri,Sat
+
+const allDays = [...days, ...otherDays, "Sun"];
+console.log(allDays); // ["Mon", "Tues", "Web", "Thu", "Fri", "Sat", "Sun"]
+
+const a = {
+  first: "hi",
+  second: "hello",
+};
+const b = {
+  third: "bye bye",
+};
+
+const two = { ...a, ...b };
+
+console.log(two); // {first: "hi", second: "hello", third: "bye bye"}
+
+const hi = (something, args) => console.log(...args);
+```
+
+- `...배열`은 배열을 unpack해서 item들만을 전달함
+- 객체도 가능함
+- function도 가능
