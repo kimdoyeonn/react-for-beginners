@@ -158,3 +158,21 @@ console.log(smilingDays);
 `Array.map()`: 배열의 element에 모두 동일한 동작을 하고, 그걸 배열로 반환받고 싶을 때 사용함
 
 - `(element, index)`의 순서로 인자를 받아올 수 있음
+
+### Array filter
+
+```javascript
+const numbers = [1, 33, 44, 22, 65, 87, 345, 867, 445, 221, 33, 76, 882, 48];
+
+const biggerThan15 = numbers.filter((number) => number > 15);
+
+console.log(biggerThan15);
+
+let posts = ["Hi", "Hello", "Bye"];
+
+posts = posts.filter((post) => post !== "Bye");
+
+console.log(posts);
+```
+
+- 배열을 하나씩 확인해서 조건에 맞는 element들을 뽑아 새로운 배열로 만들어줌
