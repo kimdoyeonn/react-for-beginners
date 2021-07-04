@@ -201,3 +201,21 @@ console.log(greetings);
 - `forEach`는 새로운 배열을 return하지 않는다는 점에서 `map`, `filter`와 차이가 있다.
 - `push`: 새로운 element를 배열에 추가
 - `includes`: 배열에 element가 들어있는지 확인
+
+## PROJECT SETUP
+
+### #2.0 Setting Up the Project
+
+```console
+npm i npx -g
+npx create-react-app nomflix
+```
+
+- `npx`: 프로그램을 최신 버전으로 설치하고 폴더가 생성되면 프로그램을 삭제함 (여기서는 `create-react-app`이 삭제됨)
+- 사용하지 않는 오래된 버전의 것들을 컴퓨터에 저장하지 않게 해주는 것
+
+```console
+npm i prop-types
+```
+
+- `prop-types`: 전달받은 데이터의 유효성을 검증하기 위해서 다양한 유효성 검사기를 내보냄
