@@ -176,3 +176,28 @@ console.log(posts);
 ```
 
 - 배열을 하나씩 확인해서 조건에 맞는 element들을 뽑아 새로운 배열로 만들어줌
+
+### forEach includes push
+
+```javascript
+let posts = ["Hi", "Hello", "Bye"];
+
+// forEach
+posts.forEach((post) => console.log(post));
+
+// push
+posts.push("new");
+
+console.log(posts);
+
+// includes
+let greetings = ["Hi", "Howdy", "Suup"];
+if (!greetings.includes("Hello")) {
+  greetings.push("Hello");
+}
+console.log(greetings);
+```
+
+- `forEach`는 새로운 배열을 return하지 않는다는 점에서 `map`, `filter`와 차이가 있다.
+- `push`: 새로운 element를 배열에 추가
+- `includes`: 배열에 element가 들어있는지 확인
