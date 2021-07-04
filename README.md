@@ -219,3 +219,16 @@ npm i prop-types
 ```
 
 - `prop-types`: 전달받은 데이터의 유효성을 검증하기 위해서 다양한 유효성 검사기를 내보냄
+
+### #2.1 React Router Part One
+
+- `App.js`를 `Components` 폴더로 옮기고, `index.js`에서의 경로를 `Components/App`으로 수정해줌
+- `jsconfig.json` 파일 덕분에 `src`는 경로에 입력하지 않아도 됨
+
+---
+
+- `Routes` 폴더를 생성하고 그 안에 페이지별로 파일을 만들어줌
+- [React Router](https://github.com/ReactTraining/react-router)는 React에서 거의 유일한 Routing 패키지
+- 여기서는 [react-router-dom](https://reactrouter.com/web/guides/quick-start)만 씀
+- React Router는 간단한 컴포넌트 묶음이다.
+- `Routes` 폴더에 사용할 페이지 컴포넌트들을 만들어 놓고(TV,TV, Home, Search, Detail), `Components` 폴더 안에 `Router.js` 파일을 만들어서 `HashRouter` 로 묶어준다. 그리고 `App.js`에 `Router.js` 컴포넌트 하나만 넣어줌
