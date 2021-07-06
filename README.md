@@ -232,3 +232,35 @@ npm i prop-types
 - 여기서는 [react-router-dom](https://reactrouter.com/web/guides/quick-start)만 씀
 - React Router는 간단한 컴포넌트 묶음이다.
 - `Routes` 폴더에 사용할 페이지 컴포넌트들을 만들어 놓고(TV,TV, Home, Search, Detail), `Components` 폴더 안에 `Router.js` 파일을 만들어서 `HashRouter` 로 묶어준다. 그리고 `App.js`에 `Router.js` 컴포넌트 하나만 넣어줌
+
+### #2.2 React Router part Two
+
+- `HashRouter`로 인한 `/#/`가 거슬린다면 `BrowserRouter`를 사용하면 다른 사이트와 비슷하게 나온다.
+- `HashRouter`: 간단하지만 웹 페이지를 사용하고 있다는 기분은 들지 않는다. 내 페이지의 Hash를 사용한다.
+- `BrowserRouter`: HTML history API를 사용한다.
+  어떤 걸 사용하든 상관 없음, 기능은 같음
+- Composition.은 두 개 이상의 Route를 동시에 랜더링하는 방식
+
+```js
+<Route path="/tv" component="{TV}" />
+<Route path="/tv/popular" render={() =>
+<h1>popular</h1>
+} />
+```
+
+- 위와 같이 작성할 경우 `/tv/popular`를 부를 경우 `/tv`도 같이 출력된다. `/tv/popular`가 `/tv`을 포함하고 있기 때문에 찾으려는 path에 맞는 모든 path들을 랜더링 하는 것이다.
+
+```js
+<Router>
+  <Switch>
+    <Route path="/" exact component={Home} />
+    <Route path="/tv" exact component={TV} />
+    <Route path="/search" component={Search} />
+    <Redirect from="*" to="/" />
+  </Switch>
+</Router>
+```
+
+- 동시에 랜더링 되는 문제점을 해결하기 위해서는 `Route` 안에 무조건 같은 path인 경우에만 이동하게 하는 exact를 넣어주어도 되지만, 만약 Route 안에 Route가 있는 경우를 만날 경우 작동하지 않기 때문에 다른 해결책을 사용해야 한다.
+- 일단 url이 잘못 입력된 경우 Home으로 이동하게 해주는 `Redirect` 를 넣어주었다. 이 경우에도 모든 잘못된 url을 이동시켜야 하기 때문에 `from`을 `"*"`로 설정해주어야 하는데, 이 `"*"`이 우리가 설정한 모든 url에도 적용이 되기 때문에 무조건 리다이렉트가 실행되게 된다.
+- 여기서 `react-router-dom`의 `Switch`를 사용해주면 한번에 하나의 url만 랜더링 되도록 바뀌기 때문에 위의 모든 문제를 해결할 수 있다.
