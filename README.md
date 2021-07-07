@@ -264,3 +264,12 @@ npm i prop-types
 - 동시에 랜더링 되는 문제점을 해결하기 위해서는 `Route` 안에 무조건 같은 path인 경우에만 이동하게 하는 exact를 넣어주어도 되지만, 만약 Route 안에 Route가 있는 경우를 만날 경우 작동하지 않기 때문에 다른 해결책을 사용해야 한다.
 - 일단 url이 잘못 입력된 경우 Home으로 이동하게 해주는 `Redirect` 를 넣어주었다. 이 경우에도 모든 잘못된 url을 이동시켜야 하기 때문에 `from`을 `"*"`로 설정해주어야 하는데, 이 `"*"`이 우리가 설정한 모든 url에도 적용이 되기 때문에 무조건 리다이렉트가 실행되게 된다.
 - 여기서 `react-router-dom`의 `Switch`를 사용해주면 한번에 하나의 url만 랜더링 되도록 바뀌기 때문에 위의 모든 문제를 해결할 수 있다.
+
+## STYLES
+
+### #3.0 CSS in React part One
+
+- 헤더를 만듦
+- 각 컴포넌트끼리 파일을 분리 (css, index.js, 컴포넌트 js파일)
+  - css는 className이 겹칠 경우의 혼란을 방지하기 위해 분리
+  - index.js는 App.js에서 일정한 패턴으로 import하기 위해 Header만을 위한 파일을 생성
