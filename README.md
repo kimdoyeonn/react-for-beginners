@@ -273,3 +273,23 @@ npm i prop-types
 - 각 컴포넌트끼리 파일을 분리 (css, index.js, 컴포넌트 js파일)
   - css는 className이 겹칠 경우의 혼란을 방지하기 위해 분리
   - index.js는 App.js에서 일정한 패턴으로 import하기 위해 Header만을 위한 파일을 생성
+
+### #3.1 CSS in React part Two
+
+- CSS 모듈
+  - css가 global이 아니라 local이 되게 함
+- css 파일을 `Header.module.css`으로 변경한 후 Header.js에서 class처럼 import해서 사용
+
+```js
+import React from "react";
+import styles from "./Header.module.css";
+
+const header = () => (
+  <header>
+    <ul className={styles.navList}>
+      <li>
+      ...
+```
+
+- 랜더링된 html을 확인해보면 임의의 문자가 붙어있는 것을 확인할 수 있다.
+- `react-router-dom` 덕분에 `.module.css`를 사용할 수 있다.
