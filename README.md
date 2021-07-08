@@ -293,3 +293,47 @@ const header = () => (
 
 - 랜더링된 html을 확인해보면 임의의 문자가 붙어있는 것을 확인할 수 있다.
 - `react-router-dom` 덕분에 `.module.css`를 사용할 수 있다.
+
+### #3.2 CSS in React part Three
+
+```js
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const Header = styled.header``;
+
+const List = styled.ul`
+  display: flex;
+  &:hover {
+    background-color: beige;
+  }
+`;
+
+const Item = styled.li``;
+
+const SLink = styled(Link)``;
+
+const header = () => (
+  <Header>
+    <List>
+      <Item>
+        <SLink to="/">Movies</SLink>
+      </Item>
+      <Item>
+        <SLink to="/tv">TV</SLink>
+      </Item>
+      <Item>
+        <SLink to="/search">Search</SLink>
+      </Item>
+    </List>
+  </Header>
+);
+
+export default header;
+```
+
+- `styled-components`를 사용해서 css를 js 파일 안에서 설정할 수 있도록 만듦(설치해야함)
+- css 파일을 모듈화해서 사용할 때와는 다르게 className을 기억할 필요가 없음
+- 태그 자체에 css 속성을 부여할 수 있다.
+- html 함수은 `styled.###`, react 함수는 `styled(###)`으로 표현함
