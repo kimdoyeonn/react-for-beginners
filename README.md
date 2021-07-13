@@ -359,7 +359,6 @@ export default header;
     height: 50px;
     display: flex;
     align-items: center;
-    padding: 0px 10px;
     background-color: rgba(20, 20, 20, 0.8);
     z-index: 10;
     box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
@@ -370,7 +369,7 @@ export default header;
   `;
 
   const Item = styled.li`
-    width: 50px;
+    width: 80px;
     height: 50px;
     text-align: center;
   `;
@@ -382,3 +381,45 @@ export default header;
     justify-content: center;
   `;
   ```
+
+  ### #3.4 Location Aware Header
+
+  - 현재 보고 있는 페이지를 header에 밑줄로 표시
+  - 현재 path를 header component에 전달하기 위해서 header component를 다른 Router로 감싸야 한다. -> 이 때 사용하는 것이 `withRouter(function)`
+
+  ```js
+  const header = ({ location: { pathname } }) => (
+    <Header>
+      {console.log(pathname)}
+      <List>
+        <Item current={pathname === "/"}>
+          <SLink to="/">Movies</SLink>
+        </Item>
+        <Item current={pathname === "/tv"}>
+          <SLink to="/tv">TV</SLink>
+        </Item>
+        <Item current={pathname === "/search"}>
+          <SLink to="/search">Search</SLink>
+        </Item>
+      </List>
+    </Header>
+  );
+  export default withRouter(header);
+  ```
+
+  - `withRouter`는 실행될 function에게 랜더링 된 페이지의 정보를 전달하게 됨
+  - 이 정보들 중에서 현재 페이지 정보를 가지고 있는 location 안에 pathname을 이용해 해당하는 header 링크의 아래에 표시를 해줌
+  - 임의의 `current`라는 속성을 만들어주고 현재 랜더링된 페이지의 pathname에 따라 true, false가 들어가도록 만듦
+
+  ```js
+  const Item = styled.li`
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    border-bottom: 3px solid ${(props) =>
+        props.current ? "#e67e22" : "transeparent"};
+    transition: border-bottom 0.5s ease-in-out;
+  `;
+  ```
+
+  - css에서는 `current`에 들어간 boolean 값에 따라 스타일을 적용여부를 확인하여 밑줄을 넣어준다.
