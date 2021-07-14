@@ -423,3 +423,10 @@ export default header;
   ```
 
   - css에서는 `current`에 들어간 boolean 값에 따라 스타일을 적용여부를 확인하여 밑줄을 넣어준다.
+
+## NETWORKING
+
+### #4.0 Introduction to The Movie DB API
+
+[https://www.themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
+db는 위의 사이트의 api를 사용한다. 인기 많은 영화, tv프로그램 얻기 등등 기능이 있음
