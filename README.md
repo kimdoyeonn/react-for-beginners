@@ -430,3 +430,26 @@ export default header;
 
 [https://www.themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
 db는 위의 사이트의 api를 사용한다. 인기 많은 영화, tv프로그램 얻기 등등 기능이 있음
+
+### #4.1 Sexy Networking with Axios Instances
+
+[https://developers.themoviedb.org/3/getting-started/introduction](https://developers.themoviedb.org/3/getting-started/introduction)
+
+- axios 사용 ([axios docs](https://github.com/axios/axios))
+- axios는 브라우저, Node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리이다. 쉽게 말해서 백엔드와 프론트엔드의 통신을 쉽게 하기 위해서 사용하는 것으로, Ajax와 더불어 사용한다.
+
+```js
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "https://api.themoviedb.org/3/",
+  params: {
+    api_key: "65f2de2554cb18d6592aae5c0810ac0c",
+    language: "en-US",
+  },
+});
+
+api.get("tv/popular");
+
+export default api;
+```
