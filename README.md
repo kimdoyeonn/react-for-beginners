@@ -453,3 +453,29 @@ api.get("tv/popular");
 
 export default api;
 ```
+
+### #4.2 API Verbs part One
+
+```md
+- [x] Now Playing (Movie)
+- [x] Upcoming (Movie)
+- [x] Top Rated (TV)
+- [x] Popular (TV, Movie)
+- [x] Airing Today (TV)
+```
+
+```js
+export const MovieApi = {
+  nowPlaying: () => api.get("movie/now_playing"),
+  upcoming: () => api.get("movie/upcoming"),
+  popular: () => api.get("movie/popular"),
+};
+
+export const TVApi = {
+  topRated: () => api.get("tv/top_rated"),
+  popular: () => api.get("tv/popular"),
+  airingToday: () => api.get("tv/airing_today"),
+};
+```
+
+- checkList에 적어놓은 목록들을 구현하기 위한 api를 api.js에서 정리하여 호출함
