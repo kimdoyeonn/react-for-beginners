@@ -506,3 +506,15 @@ export const TVApi = {
 ```
 
 - checkList에 적어놓은 목록들을 구현하기 위한 api를 api.js에서 정리하여 호출함
+
+## CONTAINERS
+
+### #5.0 Container Presenter Pattern part One
+
+- API verbs, function 들을 화면 안에 넣기
+- container presenter pattern
+  - container: data와 state를 가지고, api를 불러와서 로직을 처리함
+  - presenter: 데이터를 보여주는 역할, state를 가지고 있지 않음 api, class 도 없는 그냥 함수형 컴포넌트임
+  - presenter는 스타일이고 container는 데이터
+- MVC 패턴과 유사함
+- 각각의 기능 별로 index가 나누어져 있고, Container와 Presenter를 나누어 생성함
