@@ -454,7 +454,7 @@ api.get("tv/popular");
 export default api;
 ```
 
-### #4.2 API Verbs part One
+### #4.2 API Verbs part One ~ #4.3 API Verbs part Two
 
 ```md
 - [x] Now Playing (Movie)
@@ -462,6 +462,9 @@ export default api;
 - [x] Top Rated (TV)
 - [x] Popular (TV, Movie)
 - [x] Airing Today (TV)
+- [x] TV show Detail
+- [x] Movie Detail
+- [x] Search (Movie, TV)
 ```
 
 ```js
@@ -469,12 +472,36 @@ export const MovieApi = {
   nowPlaying: () => api.get("movie/now_playing"),
   upcoming: () => api.get("movie/upcoming"),
   popular: () => api.get("movie/popular"),
+  movieDetail: (id) =>
+    api.get(`movie/${id}`, {
+      params: {
+        append_to_response: "videos",
+      },
+    }),
+  search: (term) =>
+    api.get("search/movie", {
+      params: {
+        query: encodeURIComponent(term),
+      },
+    }),
 };
 
 export const TVApi = {
   topRated: () => api.get("tv/top_rated"),
   popular: () => api.get("tv/popular"),
   airingToday: () => api.get("tv/airing_today"),
+  showDetail: (id) =>
+    api.get(`tv/${id}`, {
+      params: {
+        append_to_response: "videos",
+      },
+    }),
+  search: (term) =>
+    api.get("search/tv", {
+      params: {
+        query: encodeURIComponent(term),
+      },
+    }),
 };
 ```
 
