@@ -518,3 +518,9 @@ export const TVApi = {
   - presenter는 스타일이고 container는 데이터
 - MVC 패턴과 유사함
 - 각각의 기능 별로 index가 나누어져 있고, Container와 Presenter를 나누어 생성함
+
+### #5.1 Container Presenter Pattern part Two
+
+- 전 강의에서는 Home을 container presenter pattern으로 바꾸었고, 이번 강의에서는 전 강의에 이어서 TV, Search, Detail을 container presenter pattern으로 파일을 생성해줌
+- container는 화면에 보여줄 때 필요한 데이터
+- presenter는 container에서 받은 데이터를 어떻게 보여줄지
