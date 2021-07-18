@@ -571,3 +571,72 @@ export const TVApi = {
 ### #5.3 TV Container
 
 - 위와 동일
+
+### #5.4 Search Container
+
+```js
+class Search extends React.Component {
+  state = {
+    movieResults: null,
+    tvResults: null,
+    searchTerm: "",
+    loading: false,
+    error: null,
+  };
+
+  handleSubmit = () => {
+    const { searchTerm } = this.state;
+    if (searchTerm !== "") {
+      this.searchByTerm();
+    }
+  };
+
+  searchByTerm = async () => {
+    const { searchTerm } = this.state;
+    this.setState({ loading: true });
+    try {
+      const {
+        data: { results: movieResults },
+      } = await moviesApi.search(searchTerm);
+      const {
+        data: { results: tvResults },
+      } = await tvApi.search(searchTerm);
+
+      this.setState({
+        movieResults,
+        tvResults,
+      });
+    } catch {
+      this.setState({ error: "Can't find results." });
+    } finally {
+      this.setState({ loading: false });
+    }
+  };
+
+  render() {
+    const { movieResults, tvResults, searchTerm, loading, error } = this.state;
+    return (
+      <SearchPresenter
+        movieResults={movieResults}
+        tvResults={tvResults}
+        searchTerm={searchTerm}
+        loading={loading}
+        error={error}
+        handleSubmit={this.handleSubmit}
+      />
+    );
+  }
+}
+```
+
+- SearchContainer에 위와 동일하게 setState를 해주는데, search 로직을 추가함
+- `handleSubmit()` searchTerm(검색어)가 비어있지 않을 경우에만 searchByTerm을 실행해서 결과를 받아와 setState를 할 수 있게 함
+- searchContainer에서 searchPresenter에 handleSubmit을 넘겨주어서 submit이 발생했을 경우 handleSubmit이 실행되게 할 예정
+
+```js
+        <Route path="/movie/:id" component={Detail} />
+        <Route path="/show/:id" component={Detail} />
+```
+
+- Detail 페이지로 이동할 수 있게 Router.js에 Route를 추가
+- `:id`는 이 자리에 값이 동적으로 할당될 수 있다는 의미
