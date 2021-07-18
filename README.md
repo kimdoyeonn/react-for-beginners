@@ -524,3 +524,46 @@ export const TVApi = {
 - 전 강의에서는 Home을 container presenter pattern으로 바꾸었고, 이번 강의에서는 전 강의에 이어서 TV, Search, Detail을 container presenter pattern으로 파일을 생성해줌
 - container는 화면에 보여줄 때 필요한 데이터
 - presenter는 container에서 받은 데이터를 어떻게 보여줄지
+
+### #5.2 Home Container
+
+```js
+  async componentDidMount() {
+    try {
+      const {
+        data: { results: nowPlaying },
+      } = await moviesApi.nowPlaying();
+      const {
+        data: { results: upcoming },
+      } = await moviesApi.upcoming();
+      const {
+        data: { results: popular },
+      } = await moviesApi.popular();
+      this.setState({
+        nowPlaying,
+        upcoming,
+        popular,
+      });
+    } catch {
+      this.setState({
+        error: "Can't find movies information.",
+      });
+    } finally {
+      this.setState({
+        loading: false,
+      });
+    }
+  }
+```
+
+<details>
+<summary>componentDidMount()</summary>
+<div markdown="1">
+컴포넌트가 마운트된 직후, 즉 트리에 삽입된 직후에 호출됩니다. DOM 노드가 있어야 하는 초기화 작업은 이 메서드에서 이루어지면 됩니다. 외부에서 데이터를 불러와야 한다면, 네트워크 요청을 보내기 적절한 위치입니다.
+이 메서드는 데이터 구독을 설정하기 좋은 위치입니다. 데이터 구독이 이루어졌다면, componentWillUnmount()에서 구독 해제 작업을 반드시 수행하기 바랍니다.
+`componentDidMount()`에서 즉시 `setState()`를 호출하는 경우도 있습니다. 이로 인하여 추가적인 렌더링이 발생하지만, 브라우저가 화면을 갱신하기 전에 이루어질 것입니다. 이 경우 `render()`가 두 번 호출되지만, 사용자는 그 중간 과정을 볼 수 없을 것입니다. 이런 사용 방식은 성능 문제로 이어지기 쉬우므로 주의가 필요합니다. 대부분의 경우 앞의 방식을 대신해 `constructor()` 메서드에서 초기 state를 할당할 수 있습니다. 하지만 모달(Modal) 또는 툴팁과 같이 랜더링에 앞서 DOM 노드의 크기나 위치를 먼저 측정해야 하는 경우 이러한 방식이 필요할 수 있습니다.
+</div>
+</details>
+
+`componentDidMount()`에서 setState()를 사용하여 api에서 받아온 값들을 설정해주었다. JS는 api로 값을 가져오는 것을 기다리지 않고 다음 코드로 넘어가는 특징을 가지고 있기 때문에 api로 값을 가져오는 것을 기다려 주기 위해서 async await를 사용하여 값을 비동기 방식으로 가져오게 했다.
+가져온 값은 비구조화 할당을 사용하여 변수에 넣어주었고, 가져온 값을 setState를 사용하여 state를 변경해주었다. state가 변경되면 리랜더링 되기 때문에 render가 실행된다. 위 코드에서는 맨처음, api에서 가져온 값이 변경될 때(에러가 발생하지 않은 경우), finally에서 loading의 값이 변경될 때 해서 총 세번 render가 실행된다.
