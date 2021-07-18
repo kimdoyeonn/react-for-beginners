@@ -567,3 +567,7 @@ export const TVApi = {
 
 `componentDidMount()`에서 setState()를 사용하여 api에서 받아온 값들을 설정해주었다. JS는 api로 값을 가져오는 것을 기다리지 않고 다음 코드로 넘어가는 특징을 가지고 있기 때문에 api로 값을 가져오는 것을 기다려 주기 위해서 async await를 사용하여 값을 비동기 방식으로 가져오게 했다.
 가져온 값은 비구조화 할당을 사용하여 변수에 넣어주었고, 가져온 값을 setState를 사용하여 state를 변경해주었다. state가 변경되면 리랜더링 되기 때문에 render가 실행된다. 위 코드에서는 맨처음, api에서 가져온 값이 변경될 때(에러가 발생하지 않은 경우), finally에서 loading의 값이 변경될 때 해서 총 세번 render가 실행된다.
+
+### #5.3 TV Container
+
+- 위와 동일
