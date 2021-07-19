@@ -640,3 +640,25 @@ class Search extends React.Component {
 
 - Detail 페이지로 이동할 수 있게 Router.js에 Route를 추가
 - `:id`는 이 자리에 값이 동적으로 할당될 수 있다는 의미
+
+### #5.5 Detail Container part One
+
+```js
+  async componentDidMount() {
+    const {
+      match: {
+        params: { id },
+      },
+      history: { push },
+    } = this.props;
+
+    const parseId = parseInt(id);
+    if (isNaN(parseId)) {
+      return push("/");
+    }
+  }
+```
+
+- Router는 Route에게 `prop`을 같이 보내준다. `prop`을 사용하면 현재 url의 parameter 찾기, 앞으로가기, 뒤로가기, 특정url로 이동하기 등등의 동작을 할 수 있다.
+- `prop`을 이용해서 Detail 페이지에서 보여주고자 하는 콘텐츠의 id를 받았다. 또, id가 원하는 형태가 아닐 경우 `push()`를 사용하여 함수 실행을 중단하고(`return`) 홈화면으로 이동하도록 만들었다.
+- 숫자가 아닌 문자열에 `parseInt()`를 사용할 경우 `NaN`이 반환된다. 결과값이 `NaN`인지 확인하기 위해서는 `===`보다는 `isNaN()`함수를 사용하는 것이 좋다.
