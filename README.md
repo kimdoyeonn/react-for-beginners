@@ -662,3 +662,8 @@ class Search extends React.Component {
 - Router는 Route에게 `prop`을 같이 보내준다. `prop`을 사용하면 현재 url의 parameter 찾기, 앞으로가기, 뒤로가기, 특정url로 이동하기 등등의 동작을 할 수 있다.
 - `prop`을 이용해서 Detail 페이지에서 보여주고자 하는 콘텐츠의 id를 받았다. 또, id가 원하는 형태가 아닐 경우 `push()`를 사용하여 함수 실행을 중단하고(`return`) 홈화면으로 이동하도록 만들었다.
 - 숫자가 아닌 문자열에 `parseInt()`를 사용할 경우 `NaN`이 반환된다. 결과값이 `NaN`인지 확인하기 위해서는 `===`보다는 `isNaN()`함수를 사용하는 것이 좋다.
+
+### #5.6 Detail Container part Two
+
+- 영화인지 티비쇼인지 확인할 변수를 state 안에 넣어줌(`includes`)
+- props에 url에 설정한 id가 들어있음(props.match.params)
