@@ -667,3 +667,7 @@ class Search extends React.Component {
 
 - 영화인지 티비쇼인지 확인할 변수를 state 안에 넣어줌(`includes`)
 - props에 url에 설정한 id가 들어있음(props.match.params)
+
+### #5.7 Destructuring assignment with let
+
+객체 비구조화시 변수 선언 키워드가 없을 경우 소괄호`()`를 사용하여 감싸줘야 한다.
