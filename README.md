@@ -671,3 +671,10 @@ class Search extends React.Component {
 ### #5.7 Destructuring assignment with let
 
 객체 비구조화시 변수 선언 키워드가 없을 경우 소괄호`()`를 사용하여 감싸줘야 한다.
+
+## PRESENTERS
+
+### #6.0 Presenter Structure
+
+- Presenter 기본 구조를 작성해줌
+- 값을 받아올 객체를 생성하고, 값의 자료형과 필수값들이 들어왔는지 확인하기 위해 `prop-types`을 사용하여 값의 필수여부, 자료형을 설정해주었음
