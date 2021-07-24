@@ -687,3 +687,10 @@ class Search extends React.Component {
   - 인수로 간단한 선택자 x를 취하는 기능 표기법
   - 인수로 표시되지 않는 요소와 일치한다. x는 다른 부정 선택자를 포함해선 안됨
   - 한 요소에만 적용됨. 따라서 table을 적용할 경우 tr 요소는 선택자의 :not()과 일치하기 때문에 여전히 표시된다.
+
+### #6.2 TVPresenter and Loader Components
+
+- Loading 화면 구현
+  - Loading용 컴포넌트를 별도로 만들고, Container의 loading 변수를 이용해서 Loading화면과 load된 화면을 분리하여 보여줌
+- 각각의 영화, 쇼들은 span을 이용해여 분리, span은 각각을 구분할 key를 가지고 있음
+- grid를 배워야한다. flexbox보다 더 편하고 멋있대!
