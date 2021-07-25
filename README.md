@@ -704,3 +704,12 @@ class Search extends React.Component {
 - value를 setState하는 함수는 onChange가 실행될 때마다 event를 받아와서 그 안에 value를 찾아 setState해줌
 - 왜 입력중인 값을 setState에 넣어줘야할까..? -> 검색할 때 state가 가지고 있는 값을 이용해서 api검색을 하기 위해서?
 - input에서 `all: unset`을 하면 텍스트를 제외한 것들이 다 없어짐
+
+### #6.4 Message Component
+
+- Error, NotFound 화면 구현
+- error가 생겨 error변수가 null이 아닐 경우 Message 컴포넌트를 랜더링
+- Error가 발생한 경우나 검색된 결과가 없는 경우 두 가지를 폰트색으로 구분함
+- Message는 폰트 색, 메세지 내용을 받아서 보여줌 color는 `${(proprs) => props.color}` 로 css에 적용됨
+- NotFound는 tvResults와 movieResults 둘다 검색된 내용이 없읅 경우 출력됨, error는 Container에서 받아온 error메시지를 화면에 뿌려주지만, Not Found는 `Nothing found for: "keyword"`로 어떤 키워드의 검색결과가 없는 건지 화면에 알려줌
+- NotFound 메세지에 searchTerm을 쓰면 input의 value가 업데이트되는게 계속 보이므로 올바르지 않은 동작임 때문에 pastTerm 변수를 만들어 검색할 때마다 업데이트를 해주어 input 값이 업데이트될 때 같이 변경되지 않도록 만들었다.

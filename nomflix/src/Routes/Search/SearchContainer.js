@@ -9,6 +9,7 @@ class Search extends React.Component {
     searchTerm: "",
     loading: false,
     error: null,
+    pastTerm: "",
   };
 
   handleSubmit = (event) => {
@@ -16,6 +17,7 @@ class Search extends React.Component {
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm();
+      this.setState({ pastTerm: searchTerm });
     }
   };
 
@@ -51,12 +53,14 @@ class Search extends React.Component {
   };
 
   render() {
-    const { movieResults, tvResults, searchTerm, loading, error } = this.state;
+    const { movieResults, tvResults, searchTerm, pastTerm, loading, error } =
+      this.state;
     return (
       <SearchPresenter
         movieResults={movieResults}
         tvResults={tvResults}
         searchTerm={searchTerm}
+        pastTerm={pastTerm}
         loading={loading}
         error={error}
         handleSubmit={this.handleSubmit}
