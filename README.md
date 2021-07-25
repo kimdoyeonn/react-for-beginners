@@ -694,3 +694,13 @@ class Search extends React.Component {
   - Loading용 컴포넌트를 별도로 만들고, Container의 loading 변수를 이용해서 Loading화면과 load된 화면을 분리하여 보여줌
 - 각각의 영화, 쇼들은 span을 이용해여 분리, span은 각각을 구분할 key를 가지고 있음
 - grid를 배워야한다. flexbox보다 더 편하고 멋있대!
+
+### #6.3 SearchPresenter Component
+
+- 강의 뒷부분 재생이 안되서 못들음
+- 화면이 로딩되는 중에 표시할 Loader를 추가(Component)
+- 검색을 위한 input과 input의 값을 전송할 form을 만들어주었고, input에 엔터로 값이 변경되는 것을 막기 위해서 SearchContainer에 event.preventDefault()
+- input에 값이 업데이트될 때마다 state를 업데이트해줌 -> onChange setState를 해주는 함수 실행, 함수는 SearchContainer에서 가져옴
+- value를 setState하는 함수는 onChange가 실행될 때마다 event를 받아와서 그 안에 value를 찾아 setState해줌
+- 왜 입력중인 값을 setState에 넣어줘야할까..? -> 검색할 때 state가 가지고 있는 값을 이용해서 api검색을 하기 위해서?
+- input에서 `all: unset`을 하면 텍스트를 제외한 것들이 다 없어짐
