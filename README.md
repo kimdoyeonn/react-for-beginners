@@ -1,5 +1,46 @@
 # react-for-beginners
 
+- [Fundamentals](#fundamentals)
+  - [Arrow function](#arrow-function)
+  - [Template Literals](#template-literals)
+  - [Object Structuring](#object-structuring)
+  - [Spread Operator](#spread-operator)
+  - [Classes](#classes)
+  - [Array map](#array-map)
+  - [Array filter](#array-filter)
+  - [forEach includes push](#foreach-includes-push)
+- [PROJECT SETUP](#project-setup)
+  - [#2.0 Setting Up the Project](#-20-setting-up-the-project)
+  - [#2.1 React Router Part One](#-21-react-router-part-one)
+  - [#2.2 React Router part Two](#-22-react-router-part-two)
+- [STYLES](#styles)
+  - [#3.0 CSS in React part One](#-30-css-in-react-part-one)
+  - [#3.1 CSS in React part Two](#-31-css-in-react-part-two)
+  - [#3.2 CSS in React part Three](#-32-css-in-react-part-three)
+  - [#3.3 GlobalStyles and Header](#-33-globalstyles-and-header)
+  - [#3.4 Location Aware Header](#-34-location-aware-header)
+- [NETWORKING](#networking)
+  - [#4.0 Introduction to The Movie DB API](#-40-introduction-to-the-movie-db-api)
+  - [#4.1 Sexy Networking with Axios Instances](#-41-sexy-networking-with-axios-instances)
+  - [#4.2 API Verbs part One ~ #4.3 API Verbs part Two](#-42-api-verbs-part-one----43-api-verbs-part-two)
+- [CONTAINERS](#containers)
+  - [#5.0 Container Presenter Pattern part One](#-50-container-presenter-pattern-part-one)
+  - [#5.1 Container Presenter Pattern part Two](#-51-container-presenter-pattern-part-two)
+  - [#5.2 Home Container](#-52-home-container)
+  - [#5.3 TV Container](#-53-tv-container)
+  - [#5.4 Search Container](#-54-search-container)
+  - [#5.5 Detail Container part One](#-55-detail-container-part-one)
+  - [#5.6 Detail Container part Two](#-56-detail-container-part-two)
+  - [#5.7 Destructuring assignment with let](#-57-destructuring-assignment-with-let)
+- [PRESENTERS](#presenters)
+  - [#6.0 Presenter Structure](#-60-presenter-structure)
+  - [#6.1 HomePresenter and Section Components](#-61-homepresenter-and-section-components)
+  - [#6.2 TVPresenter and Loader Components](#-62-tvpresenter-and-loader-components)
+  - [#6.3 SearchPresenter Component](#-63-searchpresenter-component)
+  - [#6.4 Message Component](#-64-message-component)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ## Fundamentals
 
 | React 개발자가 알아두면 편리한 것들
@@ -713,3 +754,9 @@ class Search extends React.Component {
 - Message는 폰트 색, 메세지 내용을 받아서 보여줌 color는 `${(proprs) => props.color}` 로 css에 적용됨
 - NotFound는 tvResults와 movieResults 둘다 검색된 내용이 없읅 경우 출력됨, error는 Container에서 받아온 error메시지를 화면에 뿌려주지만, Not Found는 `Nothing found for: "keyword"`로 어떤 키워드의 검색결과가 없는 건지 화면에 알려줌
 - NotFound 메세지에 searchTerm을 쓰면 input의 value가 업데이트되는게 계속 보이므로 올바르지 않은 동작임 때문에 pastTerm 변수를 만들어 검색할 때마다 업데이트를 해주어 input 값이 업데이트될 때 같이 변경되지 않도록 만들었다.
+
+### #6.5 Poster Component part One
+
+- Home에서 영화, 티비쇼들의 기본정보 보여주기
+- Poster 컴포넌트에 가져올 컨텐츠 정보들을 변수로 받아서 화면에 뿌려줌
+- isMovie 변수를 사용해서 링크의 url에 분기를 줌
