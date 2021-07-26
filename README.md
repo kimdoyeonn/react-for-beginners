@@ -760,3 +760,11 @@ class Search extends React.Component {
 - Home에서 영화, 티비쇼들의 기본정보 보여주기
 - Poster 컴포넌트에 가져올 컨텐츠 정보들을 변수로 받아서 화면에 뿌려줌
 - isMovie 변수를 사용해서 링크의 url에 분기를 줌
+
+### #6.6 Rendering Poster Component
+
+- 전 강의에서 만든 Poster 컴포넌트를 적용함
+- Movies, TV, Search 페이지에 적용
+- 개봉연도는 날짜에서 연도만 잘라내기 위해 `substring`사용
+- 값을 다룰 때는 값이 없는 경우도 생각해서 값이 존재하는지를 확인한 후에 값에 함수를 적용해줘야함
+  - `date && date.substring(0,4)`
