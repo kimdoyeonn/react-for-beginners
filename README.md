@@ -784,3 +784,9 @@ text-overflow: ellipsis;
 - `white-space: nowrap`: 글자가 넘쳐도 다음줄로 줄바꿈되지 않음
 - `overflow: hidden`: width의 크기를 넘어간 글자를 가림
 - `text-overflow: ellipsis`: 넘어간 글자를 `...`말줄임표처리함
+
+### #6.8 Detail Container part One
+
+- DetailPresenter에서 포스터 보여줌
+- 배경에 흐릿한 이미지를 깔아주기 위해 `BackDrop`에 흐린 배경을 넣어줌, 배경뿐 아니라 글자들도 같이 넣으면 글자까지 같이 흐림처리가 돼서 의도한 화면을 만들 수 없음
+- 포스터는 Home화면과 비슷하게 poster_path가 있으면 포스터의 이미지를 불러오고 없으면 따로 설정된 사진을 불러옴
