@@ -768,3 +768,19 @@ class Search extends React.Component {
 - 개봉연도는 날짜에서 연도만 잘라내기 위해 `substring`사용
 - 값을 다룰 때는 값이 없는 경우도 생각해서 값이 존재하는지를 확인한 후에 값에 함수를 적용해줘야함
   - `date && date.substring(0,4)`
+
+### #6.7 Poster Component part Two
+
+- Poster 컴포넌트 CSS
+- 제목이 15글자가 넘으면 `substring(0,15)`으로 자르고 `...`으로 뒷부분을 생략했음
+- CSS에서 넘치는 부분을 `...`으로 표시하는 방법도 있음
+
+```js
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+```
+
+- `white-space: nowrap`: 글자가 넘쳐도 다음줄로 줄바꿈되지 않음
+- `overflow: hidden`: width의 크기를 넘어간 글자를 가림
+- `text-overflow: ellipsis`: 넘어간 글자를 `...`말줄임표처리함
